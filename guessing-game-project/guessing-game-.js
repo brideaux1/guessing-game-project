@@ -27,6 +27,7 @@ function randomInRange(min, max) {
 }
 
 let secretNumber = randomInRange(0, 100);
+let numAttempts = 5;
 
 function checkGuess(num) {
   if (num > secretNumber) {
@@ -34,7 +35,7 @@ function checkGuess(num) {
     return false;
   }
   if (num < secretNumber) {
-    console.log("Too low.");
+    console.log("Too low!");
     return false;
   }
   if (num === secretNumber) {
@@ -45,10 +46,15 @@ function checkGuess(num) {
 
 function askGuess() {
   rl.question("Enter a guess: ", (num) => {
+    numAttempts--;
     if (checkGuess(Number(num))) {
       console.log("You win!");
       rl.close();
+    } else if (numAttempts === 0) {
+      console.log("You Lose!");
+      rl.close();
     } else {
+      console.log("You have " + numAttempts + " attempts remaining.");
       askGuess();
     }
   });
