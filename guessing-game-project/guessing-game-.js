@@ -16,6 +16,7 @@ const secretNumber = 50;
 function checkGuess(num) {
   if (num > secretNumber) {
     console.log("Too high.");
+    no;
     return false;
   }
   if (num < secretNumber) {
