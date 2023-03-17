@@ -6,8 +6,12 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-//initialize a variable "secretNumber" to any positive number
-const secretNumber = 50;
+function randomInRange(min, max) {
+  return Math.floor(Math.random() * max - min + 1) + min;
+}
+
+//initialize a variable "secretNumber" to any positive number (change to get a number at random)
+const secretNumber = randomInRange(0, 100);
 // create a function called checkGuess that accepts a number
 //  when the argument is larger than secretNumber, it should print 'Too high.' and return false
 //  when the argument is smaller than secretNumber, it should print 'Too low.' and return false
